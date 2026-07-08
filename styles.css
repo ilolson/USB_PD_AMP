@@ -173,6 +173,19 @@ h3 {
   min-width: 0;
 }
 
+.revision-hero {
+  min-height: calc(70vh - 5rem);
+}
+
+.revision-panel {
+  width: min(100%, 34rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
 .matrix-bezel {
   width: min(100%, 38rem);
   aspect-ratio: 1;
@@ -225,8 +238,13 @@ h3 {
 }
 
 .band,
+.revisions,
 .hardware {
   padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+}
+
+.revisions {
+  background: #121416;
 }
 
 .band {
@@ -244,6 +262,7 @@ h3 {
 }
 
 .feature-grid,
+.revision-grid,
 .pin-layout {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -253,11 +272,52 @@ h3 {
 }
 
 .feature-grid article,
+.revision-card,
 .pin-layout > div {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   padding: 1.1rem;
   background: rgba(255, 255, 255, 0.64);
+}
+
+.revision-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.revision-card {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 10rem;
+  border-color: var(--line);
+  background: var(--panel-strong);
+}
+
+.revision-card:hover {
+  border-color: rgba(255, 194, 71, 0.65);
+}
+
+.revision-card span {
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.revision-card strong {
+  font-size: 1.25rem;
+}
+
+.revision-card small {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.revision-card.muted {
+  color: var(--muted);
+}
+
+.revision-card.muted:hover {
+  border-color: var(--line);
 }
 
 .feature-grid p {
@@ -302,6 +362,7 @@ h3 {
 
 .pin-list dd {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 footer {
@@ -319,6 +380,7 @@ footer {
 
   .hero,
   .feature-grid,
+  .revision-grid,
   .pin-layout {
     grid-template-columns: 1fr;
   }
