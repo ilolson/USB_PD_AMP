@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HUB75 Audio Matrix: a macOS SwiftUI and Metal simulator for live audio-driven LED matrix visuals.">
+    <title>HUB75 Audio Matrix</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="HUB75 Audio Matrix home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>HUB75 Audio Matrix</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#hardware">Hardware</a>
+        <a href="https://github.com/ilolson/USB_PD_AMP" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">macOS SwiftUI + Metal</p>
+          <h1 id="hero-title">HUB75 Audio Matrix</h1>
+          <p class="lede">
+            A live audio visualizer and 64x64 HUB75 RGB matrix simulator with GPIO trace decoding,
+            ScreenCaptureKit audio input, and Metal rendering.
+          </p>
+          <div class="actions" aria-label="Project actions">
+            <a class="button primary" href="App/readme.md">Read project notes</a>
+            <a class="button secondary" href="#hardware">View pin map</a>
+          </div>
+        </div>
+
+        <div class="matrix-stage" aria-label="LED matrix preview">
+          <div class="matrix-bezel">
+            <div class="led-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <p class="eyebrow">Simulator</p>
+          <h2 id="features-title">Built for signal-level visibility</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>64x64 framebuffer</h3>
+            <p>Models a logical RGB matrix with a 1/32-scan HUB75 refresh path.</p>
+          </article>
+          <article>
+            <h3>Audio analysis</h3>
+            <p>Tracks RMS, peak, envelope, FFT spectrum, frequency bands, smoothing, noise floor, and AGC.</p>
+          </article>
+          <article>
+            <h3>GPIO trace decoding</h3>
+            <p>Reads CLK, LAT, OE, row addressing, and upper/lower RGB data activity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="hardware" id="hardware" aria-labelledby="hardware-title">
+        <div class="section-heading">
+          <p class="eyebrow">Board reference</p>
+          <h2 id="hardware-title">Pin map</h2>
+        </div>
+        <div class="pin-layout">
+          <div>
+            <h3>HUB75</h3>
+            <dl class="pin-list">
+              <div><dt>R0/G0/B0</dt><dd>GPIO16 / GPIO17 / GPIO18</dd></div>
+              <div><dt>R1/G1/B1</dt><dd>GPIO19 / GPIO27 / GPIO29</dd></div>
+              <div><dt>ROW_E</dt><dd>GPIO28</dd></div>
+              <div><dt>ROW_A/B/C/D</dt><dd>GPIO31 / GPIO32 / GPIO33 / GPIO34</dd></div>
+              <div><dt>CLK/LAT/OE</dt><dd>GPIO35 / GPIO36 / GPIO37</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h3>Audio codec</h3>
+            <dl class="pin-list">
+              <div><dt>I2S DIN/DOUT/FSYNC/BCLK</dt><dd>GPIO0 / GPIO1 / GPIO2 / GPIO3</dd></div>
+              <div><dt>I2C SDA/SCL</dt><dd>GPIO4 / GPIO5</dd></div>
+              <div><dt>TAD5112 interrupt</dt><dd>GPIO6</dd></div>
+              <div><dt>AMP power</dt><dd>GPIO7</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Open App/Hub75AudioMatrix.xcodeproj in Xcode and run the Hub75AudioMatrix scheme on macOS 14 or newer.</span>
+    </footer>
+  </body>
+</html>
