@@ -24,4 +24,3 @@ set Pages to deploy from `main` and `/ (root)`, then wait for the Pages build to
 ## Boards
 
 - R1 lives in `boards/R1/index.html` and links to `https://ilolson.github.io/USB_PD_AMP/boards/R1/`.
-- To add R2, create `boards/R2/index.html`, then add a link to `boards/R2/` in `index.html`.
